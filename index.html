@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ka" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>FreshCart 2025 - კურიერის შეკვეთა</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @font-face {
+      font-family: 'myffont';
+      src: url('alk-sanet.ttf');
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  FreshCart
+</header>
+
+<!-- Burger menu button -->
+<button id="burgerButton" aria-label="მენიუს გახსნა/დახურვა" role="button" tabindex="0" aria-expanded="false" title="მენიუ">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Side menu -->
+<nav id="sideMenu" aria-label="საიტის ნავიგაცია" role="navigation" tabindex="-1">
+  <button class="menu-item" data-section="rules">საიტის წესები</button>
+  <button class="menu-item" data-section="instructions">ინსტრუქცია</button>
+  <button class="menu-item" data-section="cities">მოქმედი ქალაქები</button>
+  <a href="mailto:example@gmail.com">
+    <button class="menu-item">კონტაქტი <br><br>ადმინისტრაციასთან</button>
+  </a>
+</nav>
+
+<!-- Overlay -->
+<div id="overlay" tabindex="-1"></div>
+
+<!-- Content panel for sections -->
+<section id="contentPanel" role="dialog" aria-modal="true" aria-labelledby="contentTitle" tabindex="-1">
+  <button class="close-btn" aria-label="შინაარსის პანელის დახურვა">&times;</button>
+  <h3 id="contentTitle"></h3>
+  <div id="contentBody"></div>
+</section>
+
+<!-- Modal Overlay -->
+<div id="modalOverlay" class="modal-overlay" tabindex="-1" aria-hidden="true"></div>
+
+<!-- Modal Window -->
+<div id="orderModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1" hidden>
+  <div class="modal-content">
+    <h2 id="modalTitle">შეკვეთის გაგზავნის შემდეგ</h2>
+    <p id="modalDesc">
+      შეკვეთის გაგზავნის შემდეგ დაბრუნდით ვებსაიტზე და დააჭირეთ ღილაკს „გადახდა“. 
+      გადახდის გვერდზე მიუთითეთ თქვენი შეკვეთის სრული თანხა და „დანიშნულების ველში“ აუცილებლად ჩაწერეთ თქვენი ტელეფონის ნომერი — ეს აუცილებელია თქვენი გადახდის იდენტიფიკაციისთვის.
+    </p>
+    <section class="location-form" aria-label="ტელეფონის ნომერი და მიწოდების მისამართი">
+      <h2>ტელეფონის ნომერი და მიწოდების მისამართი</h2>
+      <label for="phone" class="sr-only">ტელეფონის ნომერი (9 ციფრი)</label>
+      <input type="tel" id="phone" placeholder="ტელეფონის ნომერი (9 ციფრი)" minlength="9" maxlength="9" pattern="\\d{9}" aria-required="true" autocomplete="tel" inputmode="tel" />
+      <label for="address" class="sr-only">მისამართი</label>
+      <input type="text" id="address" placeholder="მისამართი" aria-required="true" autocomplete="street-address" />
+    </section>
+    <div class="modal-buttons">
+      <button id="modalSendOrderBtn" type="button">შეკვეთის გაგზავნა</button>
+      <button id="modalPaymentBtn" type="button">გადახდა</button>
+    </div>
+    <button id="modalCloseBtn" class="modal-close" aria-label="მოდალის დახურვა">&times;</button>
+  </div>
+</div>
+
+<!-- Cart button -->
+<button id="cartButton" aria-label="კალათა" title="კალათა">კალათა</button>
+
+<main id="mainContent">
+  <section class="search-bar" aria-label="პროდუქტების ძებნა">
+    <input type="search" id="productSearch" placeholder="პროდუქტის ძიება..." aria-label="პროდუქტების ძებნა" autocomplete="off" />
+  </section>
+
+  <section class="slideshow" aria-label="სლაიდშოუ">
+    <!-- სურათები დინამიურად ჩასმულია JS-ით -->
+  </section>
+
+  <div id="productContainer"></div>
+
+  <section id="order-summary" aria-live="polite" aria-atomic="true" aria-label="შეკვეთის შეჯამება">
+    <h3>კალათა</h3>
+    <div id="summaryItems">არცერთი პროდუქტი არ არის არჩეული</div>
+    <p>ჯამი: <span id="summaryTotal">₾0.00</span></p>
+  </section>
+</main>
+
+<footer>
+  <button type="button">შეკვეთის გაგზავნა</button>
+</footer>
+
+<div id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
