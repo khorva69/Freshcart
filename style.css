@@ -20,7 +20,11 @@
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: 'myffont';
-}
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  }
 body {
   margin: 0;
   background: var(--bg-dark);
