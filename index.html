@@ -99,6 +99,17 @@
 <div id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
 
 <script src="script.js"></script>
-
+<script>
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a');
+  if (a) {
+    const href = a.getAttribute('href');
+    if (href.startsWith('mailto:') || a.target === '_blank') {
+      e.preventDefault();
+      window.AppInventor.setWebViewString(href);
+    }
+  }
+});
+      </script>
 </body>
 </html>
