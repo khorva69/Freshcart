@@ -34,13 +34,6 @@ async function loadProducts() {
     console.error('პროდუქტების ჩატვირთვა ვერ მოხერხდა:', error);
   }
 }
-document.addEventListener('selectstart', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('mousedown', function(e) {
-  e.preventDefault();
-});
 // Menu open/close
 function openMenu() {
   sideMenu.classList.add('open');
