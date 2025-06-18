@@ -20,7 +20,7 @@
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: 'myffont';
-  }
+}
 body {
   margin: 0;
   background: var(--bg-dark);
@@ -124,8 +124,21 @@ main {
 #sideMenu.open {
   transform: translateX(0);
 }
-#sideMenu button.menu-item {
-  background: none;
+#sideMenu button{
+  background: var(--primary-soft);
+  border: none;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 12px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: border-color 0.2s ease;
+  user-select: none;
+  width: 100%;
+}
+.menu-item{
   border: none;
   color: var(--primary);
   font-weight: 700;
@@ -137,9 +150,8 @@ main {
   transition: border-color 0.2s ease;
   user-select: none;
 }
-#sideMenu button.menu-item:hover,
-#sideMenu button.menu-item:focus {
-  border-bottom: 1px solid var(--primary);
+#sideMenu button:hover,
+#sideMenu button:focus {
   outline: none;
 }
 
