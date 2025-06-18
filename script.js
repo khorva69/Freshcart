@@ -34,6 +34,7 @@ async function loadProducts() {
     console.error('პროდუქტების ჩატვირთვა ვერ მოხერხდა:', error);
   }
 }
+
 // Menu open/close
 function openMenu() {
   sideMenu.classList.add('open');
@@ -391,54 +392,3 @@ window.toggleProduct = toggleProduct;
 window.adjustQuantity = adjustQuantity;
 window.updateQuantity = updateQuantity;
 window.sendOrder = sendOrder;
-(function() {
-  if (sessionStorage.getItem('adShown')) return;
-
-  const overlay = document.createElement('div');
-  overlay.style.cssText = `
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.4); backdrop-filter: blur(6px);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 999999;
-  `;
-
-  const modal = document.createElement('div');
-  modal.style.cssText = `
-    position: relative;
-    border-radius: 16px;
-    animation: fadeInScale 0.3s ease;
-    background: transparent;
-  `;
-
-  const closeBtn = document.createElement('button');
-  closeBtn.innerText = '×';
-  closeBtn.style.cssText = `
-    position: absolute; top: -12px; right: -12px;
-    width: 32px; height: 32px; border: none;
-    border-radius: 50%; background: #fff;
-    font-size: 18px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  `;
-  closeBtn.onclick = () => document.body.removeChild(overlay);
-
-  const link = document.createElement('a');
-  link.href = 'https://your-link-here.com'; // 👉 აქ ჩასვი სარეკლამო ბმული
-  link.target = '_blank'; // ახალ ფანჯარაში გახსნის
-
-  const img = document.createElement('img');
-  img.src = 'https://i.postimg.cc/RVGwy0wp/Picsart-25-06-18-00-38-25-319.jpg'; // 👉 აქ ჩასვი რეკლამის სურათის ლინკი
-  img.style.cssText = `
-    max-width: 90vw; max-height: 80vh;
-    border-radius: 0px;
-    cursor: pointer;
-  `;
-
-  link.appendChild(img);
-  modal.appendChild(closeBtn);
-  modal.appendChild(link);
-  overlay.appendChild(modal);
-
-  setTimeout(() => {
-    document.body.appendChild(overlay);
-    sessionStorage.setItem('adShown', 'true');
-  }, 2000);
-})();
