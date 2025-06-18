@@ -335,18 +335,9 @@ modalOverlay.addEventListener('click', closeOrderModal);
 // Product search input
 document.getElementById('productSearch').addEventListener('input', filterProducts);
 
-// Save phone input to localStorage
-document.getElementById('phone').addEventListener('input', e => {
-  localStorage.setItem('lastPhone', e.target.value);
-});
-
-// Load last phone and products on window load
+// Load products on window load
 window.onload = () => {
   loadProducts();
-  const lastPhone = localStorage.getItem('lastPhone');
-  if (lastPhone) {
-    document.getElementById('phone').value = lastPhone;
-  }
 };
 
 // Slideshow
